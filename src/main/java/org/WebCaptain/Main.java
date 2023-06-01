@@ -12,7 +12,7 @@ public class Main {
 
         SpringApplication.run(YoutubeApiClient.class, args);
 
-        // Instantiate your controller or service class
+        // Instantiate a controller or service class
         YoutubeController myController = new YoutubeController();
 
         // Call the method to make the web request
@@ -23,6 +23,5 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.println("Hello world!");
     }
 }
