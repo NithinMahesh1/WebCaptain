@@ -7,7 +7,7 @@ public class YoutubeController {
         String url = "https://www.googleapis.com/youtube/v3/search?&q=" + channelName + "&type=video&part=snippet";
         String response = youtubeApiClient.makeRequest(url);
 
-        // Handle the response and extract the desired information
+        // Return the responses with channel videos list and metadata
         return response;
     }
 }
