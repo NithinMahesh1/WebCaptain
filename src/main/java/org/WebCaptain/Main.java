@@ -16,13 +16,11 @@ public class Main {
 
         // Instantiate controllers
         YoutubeController youtubeResponseController = new YoutubeController();
-        ChannelResController youtubeRESTController = new ChannelResController();
 
         // Call the method to make the web request
         try {
             String videoDetails = youtubeResponseController.getVideoDetails("ARAKO%20TV");
-            List<String> titles = youtubeRESTController.getTitles(videoDetails);
-//            System.out.println(videoDetails);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
