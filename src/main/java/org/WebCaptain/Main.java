@@ -1,7 +1,6 @@
 package org.WebCaptain;
-import org.WebCaptain.YoutubeRequests.YoutubeApiClient;
+
 import org.WebCaptain.YoutubeRequests.YoutubeController;
-import org.WebCaptain.YoutubeRequests.ChannelResController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
