@@ -13,9 +13,10 @@ function App() {
     try {
       const response = await fetch('http://localhost:8080/getVideoDetails');
       const jsonData = await response.json();
+      console.log(jsonData);
       setData(jsonData);
     } catch (error) {
-      console.error(error);
+      console.error("Reporting Youtube API errors: " +error);
     }
   };
 
@@ -26,11 +27,7 @@ function App() {
 
         <p>Here we get the json response from the backend</p>
 
-        <ul>
-          {data.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+        <div>{JSON.stringify(data)}</div>
 
       </header>
     </div>
