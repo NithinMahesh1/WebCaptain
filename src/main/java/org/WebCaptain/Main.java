@@ -18,7 +18,7 @@ public class Main {
 
         // Call the method to make the web request
         try {
-            String videoDetails = youtubeResponseController.getVideoDetails("ARAKO%20TV");
+            String videoDetails = youtubeResponseController.getVideoDetails("Story%20Recapped");
 
         } catch (IOException e) {
             e.printStackTrace();

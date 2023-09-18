@@ -8,11 +8,12 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 public class YoutubeApiClient {
-    private static final String API_KEY = "AIzaSyB_TPu9H_fuu84TJ6otEV_hgEsMnvoQHWk";
+    private static final String API_KEY = "";
 
     public String makeRequest(String url) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
         HttpGet httpGet = new HttpGet(url + "&key=" + API_KEY);
+        System.out.print(url + "&key=" + API_KEY);
 
         HttpResponse response = httpClient.execute(httpGet);
         HttpEntity entity = response.getEntity();
