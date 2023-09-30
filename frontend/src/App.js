@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
@@ -7,11 +6,12 @@ function App() {
 
   useEffect(() => {
     fetchData();
+    dataView(data);
   }, []);
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/getVideoDetails');
+      const response = await fetch('http://localhost:8080/getVideoDetails?channelName=StoryRecapped');
       const jsonData = await response.json();
       console.log(jsonData);
       setData(jsonData);
@@ -20,14 +20,34 @@ function App() {
     }
   };
 
+  var dataView = async (data) => {
+    await fetchData();
+    console.log("Printing the output of each item in loop: ");
+
+    var dict = {};
+    var channelResJSON = data.items;
+    console.log(channelResJSON);
+
+    const res_array = []; 
+    for(let i in channelResJSON) { 
+       res_array.push([i,channelResJSON[i]]); 
+    };
+    
+    // for(let i=0; i<channelResJSON.length; i++) {
+    //     console.log(channelResJSON[i]);
+    //     dict[i] = channelResJSON[i];
+    // }
+
+    console.log(res_array);
+    return res_array;
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        
 
-        <p>Here we get the json response from the backend</p>
-
-        <div>{JSON.stringify(data)}</div>
+      <div>{dataView(data)}</div>
 
       </header>
     </div>
