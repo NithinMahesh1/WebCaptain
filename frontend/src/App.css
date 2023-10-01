@@ -28,6 +28,26 @@
   color: #61dafb;
 }
 
+.ChannelDescription {
+  font-size: 1.4rem;
+}
+
+.ChannelTitle {
+  font-size: 0.9rem;
+  float: left;
+  margin-left: 75px;
+}
+
+.PublishTime {
+  font-size: 0.9rem;
+  float: right;
+  margin-right: 85px;
+}
+
+.appWrapper {
+  margin: 20px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
