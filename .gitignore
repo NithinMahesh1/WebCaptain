@@ -1,4 +1,5 @@
 Notes/WebCaptain Java Web App Project.txt
+Notes/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/

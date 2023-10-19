@@ -1,6 +1,7 @@
 package org.WebCaptain.YoutubeRequests;
 import java.io.IOException;
 
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -13,17 +14,24 @@ public class YoutubeController {
     // You can adjust this code based on the actual response structure
     private YoutubeApiClient youtubeApiClient = new YoutubeApiClient();
 
-    @GetMapping("/getVideoDetails")
-    public String getVideoDetails(@RequestParam String channelName) throws IOException {
+    @GetMapping("/getChannelDetails")
+    public String getChannelDetails(@RequestParam String channelName, OAuth2AuthenticationToken authentication) throws IOException {
         String url = "https://www.googleapis.com/youtube/v3/search?&q=" + channelName + "&type=video&part=snippet";
         System.out.println("This is the output from REST call: " +url);
-        String response = youtubeApiClient.makeRequest(url);
+
+        String response = youtubeApiClient.makeRequest(url, authentication);
 
         // Return the responses with channel videos list and metadata
         return response;
     }
 
-    public void getThumbnails() {}
+    @GetMapping("/getUserSubscriptions")
+    public String getUserSubscriptions(OAuth2AuthenticationToken authentication) throws IOException {
+        String url = "https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&mine=true";
+        String response = youtubeApiClient.makeRequest(url, authentication);
 
-    public void getchannelTitle() {}
+        // Return the responses with channel videos list and metadata
+        return response;
+    }
+
 }

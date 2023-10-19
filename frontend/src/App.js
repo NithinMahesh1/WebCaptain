@@ -11,7 +11,7 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:8080/getVideoDetails?channelName=WhistlinDiesel');
+      const response = await fetch('http://localhost:8080/getChannelDetails?channelName=WhistlinDiesel');
       const jsonData = await response.json();
 
       setData(jsonData);
