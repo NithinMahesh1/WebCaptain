@@ -1,14 +1,12 @@
+#  Documentation on OAuth 2 configuration here:
+#  https://docs.spring.io/spring-security/reference/servlet/oauth2/login/core.html
+
 spring:
   security:
     oauth2:
       client:
         registration:
           google:
-            client-id: ""
-            client-secret: ""
-            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
-        provider:
-          google:
-            authorization-uri: https://accounts.google.com/o/oauth2/auth
-            token-uri: https://accounts.google.com/o/oauth2/token
-            redirect-uri: http://localhost:8080/getUserSubscriptions
+            clientId: 187713709108-jisnv4kjvcfhrs4rngf6sbeiiqj97pct.apps.googleusercontent.com
+            clientSecret: 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
+            scope: openid,profile,email,https://www.googleapis.com/auth/youtube.readonly
