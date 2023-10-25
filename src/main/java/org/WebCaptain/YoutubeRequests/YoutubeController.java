@@ -41,13 +41,6 @@ public class YoutubeController {
     public String getUserSubscriptions(OAuth2AuthenticationToken authentication) throws IOException {
         String url = "https://www.googleapis.com/youtube/v3/subscriptions?part=snippet&mine=true";
 
-//        String registrationID = authentication.getAuthorizedClientRegistrationId();
-//        String username = authentication.getName();
-//
-//        OAuth2AuthorizedClient client = authorizedClientService.loadAuthorizedClient(registrationID, username);
-//
-//        String access_token = client.getAccessToken().getTokenValue();
-
         // Get the registrationId (client) from the authentication
         String registrationId = authentication.getAuthorizedClientRegistrationId();
         // Get the name of the user
@@ -60,7 +53,6 @@ public class YoutubeController {
         // Extract the access token
         OAuth2AccessToken accessToken = authorizedClient.getAccessToken();
         String tokenValue = accessToken.getTokenValue();
-
 
         String response = youtubeApiClient.makeRequest(url, tokenValue);
 

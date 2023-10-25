@@ -16,11 +16,7 @@ import org.springframework.security.oauth2.client.authentication.OAuth2Authentic
 import java.io.IOException;
 import java.util.*;
 
-import static org.springframework.security.config.Customizer.withDefaults;
-
 public class YoutubeApiClient {
-    @Autowired
-    private OAuth2AuthorizedClientService authorizedClientService;
     public String makeRequest(String url, String access_token) throws IOException {
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
@@ -43,31 +39,5 @@ public class YoutubeApiClient {
 
         return authentication_attributes.get("picture").toString();
     }
-
-//    public String makeRequest(String url, OAuth2AuthenticationToken authentication) throws IOException {
-//        CloseableHttpClient httpClient = HttpClients.createDefault();
-//        HttpGet subscription_request = new HttpGet(url);
-//        HttpPost token_request = new HttpPost("https://oauth2.googleapis.com/token");
-//
-//        List<NameValuePair> params = new ArrayList<>();
-//        params.add(new BasicNameValuePair("grant_type", "authorization_code"));
-//        params.add(new BasicNameValuePair("scope", "https://www.googleapis.com/auth/youtube.readonly"));
-//        params.add(new BasicNameValuePair("redirect_uri", "http://localhost:8080/getUserSubscriptions"));
-//        params.add(new BasicNameValuePair("client_id", ""));
-//        params.add(new BasicNameValuePair("client_secret", ""));
-//        params.add(new BasicNameValuePair("auth_url", "https://accounts.google.com/o/oauth2/auth"));
-//
-//        token_request.setEntity(new UrlEncodedFormEntity(params));
-//
-//        HttpResponse response = httpClient.execute(token_request);
-//        HttpEntity entity = response.getEntity();
-//
-//        if (entity != null) {
-//            return entity.toString();
-//        }
-//
-//        return null;
-//    }
-
 
 }
