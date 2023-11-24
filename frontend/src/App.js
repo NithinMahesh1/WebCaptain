@@ -3,54 +3,51 @@ import './App.css';
 
 function App() {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchData();
+    dataView(data);
   }, []);
 
   const fetchData = async () => {
     try {
       const response = await fetch('http://localhost:8080/getChannelDetails?channelName=WhistlinDiesel');
       const jsonData = await response.json();
-      
+      console.log(jsonData);
       setData(jsonData);
-      setLoading(false);
     } catch (error) {
       console.error("Reporting Youtube API errors: " +error);
     }
   };
 
+  var dataView = async (data) => {
+    await fetchData();
+    console.log("Printing the output of each item in loop: ");
+
+    var dict = {};
+    var channelResJSON = data.items;
+    console.log(channelResJSON);
+
+    const res_array = []; 
+    for(let i in channelResJSON) { 
+       res_array.push([i,channelResJSON[i]]); 
+    };
     
+    // for(let i=0; i<channelResJSON.length; i++) {
+    //     console.log(channelResJSON[i]);
+    //     dict[i] = channelResJSON[i];
+    // }
 
-  const renderData = () => {
-    if(loading) {
-      return <p> loading .... </p>
-    } 
-    else if(data || data.items) {
-      const channelResObj = data.items;
-      console.log("we are inside renderData outputting resObj: ");
-      console.log(channelResObj);
-
-      return (
-        <div>
-          {channelResObj.map((item, index) => (
-            <div key={index}>{item.snippet.description}</div>
-          ))};
-        </div>
-      );
-    }
-    else {
-      return <p> No data is available .... </p>
-    }
-  };
+    console.log(res_array);
+    return res_array;
+  }
 
   return (
     <div className="App">
       <header className="App-header">
         
 
-      <div>{renderData()}</div>
+      <div>{dataView(data)}</div>
 
       </header>
     </div>
