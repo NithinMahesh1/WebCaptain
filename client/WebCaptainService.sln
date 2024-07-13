@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebCaptainService", "WebCaptainService\WebCaptainService.csproj", "{77891460-6625-45F1-978F-763DBD084E77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77891460-6625-45F1-978F-763DBD084E77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77891460-6625-45F1-978F-763DBD084E77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77891460-6625-45F1-978F-763DBD084E77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77891460-6625-45F1-978F-763DBD084E77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {49AC38A4-E463-4728-B7FA-D13F4401E1FD}
+	EndGlobalSection
+EndGlobal
