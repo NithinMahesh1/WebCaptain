@@ -1,7 +1,30 @@
 <script setup lang="ts">
+import axios from 'axios';
+
 defineProps<{
   msg: string
 }>()
+
+function getTokenRequest() {
+  console.log("Running youtube id_token request")
+
+  // May need to do our testing with api key if we can't add authorized uris to dev console
+  const res = axios.request({
+    headers:{'Content-Type': 'application/x-www-form-urlencoded'},
+    url: "/oauth2/token",
+    method: "post",
+    baseURL: "https://oauth2.googleapis.com/token",
+    data: "grant_type=client_credentials",
+    auth: {
+      // Add client_id
+      username: "",
+      // Add client_secret 
+      password: "" 
+    }
+  });
+
+  console.log(res);
+}
 </script>
 
 <template>
@@ -12,6 +35,9 @@ defineProps<{
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
     </h3>
+  </div>
+  <div>
+    <button v-on:click="getTokenRequest" >Run Token Request</button>
   </div>
 </template>
 
